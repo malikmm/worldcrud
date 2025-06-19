@@ -9,8 +9,12 @@ import java.util.List;
 
 @Service
 public class CityService {
-    @Autowired
     private CityRepository cityRepository;
+
+    @Autowired
+    public CityService(CityRepository cityRepository) {
+        this.cityRepository = cityRepository;
+    }
 
     public List<City> getAllCities() {
         return cityRepository.findAll();

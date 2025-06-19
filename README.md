@@ -1,3 +1,11 @@
+
+<ul>
+<li>http://localhost:9092/greet?name=Mons</li>
+<li>http://localhost:9092/countries</li>
+<li>http://localhost:9092/cities</li>
+</ul>
+
+
 <p>@ComponentScan is used for scanning all your components those are marked as @Controller, @Service, @Repository, @Component etc…
 </p>
 
