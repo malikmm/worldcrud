@@ -1,7 +1,7 @@
 package com.malik.world.delegate;
 
 
-import com.malik.openapi.api.GreetApiDelegate;
+import com.malik.openapi.api.GreetingApiDelegate;
 import com.malik.openapi.model.Greeting;
 import com.malik.world.service.GreetService;
 import lombok.RequiredArgsConstructor;
@@ -14,7 +14,7 @@ import org.springframework.stereotype.Service;
 @Service
 @RequiredArgsConstructor
 @Slf4j
-public class GreetDelegate implements GreetApiDelegate {
+public class GreetDelegate implements GreetingApiDelegate {
     private GreetService greetService;
 
     @Autowired

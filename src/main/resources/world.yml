@@ -7,7 +7,7 @@ info:
 servers:
   - url: http://localhost:9092/
 paths:
-  /greet:
+  /greeting/greet:
     get:
       tags:
         - greeting
