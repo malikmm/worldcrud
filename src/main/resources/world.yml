@@ -7,7 +7,7 @@ info:
 servers:
   - url: http://localhost:9092/
 paths:
-  /greet:
+  /greeting/greet:
     get:
       tags:
         - greeting
@@ -65,6 +65,40 @@ paths:
             application/json:
               schema:
                 $ref: "#/components/schemas/Error"
+    options:
+      summary: CORS preflight
+      responses:
+        '200':
+          description: CORS preflight response
+          headers:
+            Access-Control-Allow-Origin:
+              schema:
+                type: string
+                example: "*"
+            Access-Control-Allow-Methods:
+              schema:
+                type: string
+                example: "GET, POST, PUT, DELETE, OPTIONS"
+            Access-Control-Allow-Headers:
+              schema:
+                type: string
+                example: "Content-Type, Authorization"
+            Access-Control-Allow-Credentials:
+              schema:
+                type: string
+                example: "true"
+      x-amazon-apigateway-integration:
+        type: mock
+        requestTemplates:
+          application/json: |
+            {"statusCode" : 200}
+        responses:
+          default:
+            statusCode: 200
+            responseParameters:
+              method.response.header.Access-Control-Allow-Headers: "'*'"
+              method.response.header.Access-Control-Allow-Methods: "'OPTIONS,POST'"
+              method.response.header.Access-Control-Allow-Origin: "'http://localhost:9092/'"
   /cities:
     get:
       summary: List all cities
